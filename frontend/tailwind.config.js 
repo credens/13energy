@@ -1,0 +1,21 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        '13neon': '#99FF00',
+        '13black': '#0D0D0D',
+        '13gray': '#080808',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Teko', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
