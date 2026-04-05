@@ -4,14 +4,13 @@ import { useCart } from '../../store/useCart';
 const Hero = () => {
   const { setSelection } = useCart();
   
-  // Agregamos cat (Categoría) e idx (Índice en el catálogo) a cada producto
   const allProducts = [
     { name: 'LIMA', type: 'PRE-WORK', color: '#99FF00', tagline: 'READY TO <br /> DRINK.', img: '/lata-13energy.png', cat: 'PRE-WORK', idx: 0 },
     { name: 'MANGO', type: 'PRE-WORK', color: '#FF8000', tagline: 'EXPLOSIÓN <br /> TROPICAL.', img: '/lata-13energy-mango.png', cat: 'PRE-WORK', idx: 1 },
     { name: 'FRUTILLA', type: 'PRE-WORK', color: '#FF1E1E', tagline: 'FUERZA <br /> EXTREMA.', img: '/lata-13energy-frutilla.png', cat: 'PRE-WORK', idx: 2 },
     { name: 'LIMONADA', type: 'RECOVERY', color: '#D4FF00', tagline: 'RECUPERACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-limon.png', cat: 'RECOVERY', idx: 0 },
     { name: 'RECO-FRUTILLA', type: 'RECOVERY', color: '#FF4D6D', tagline: 'REHIDRATÁ TU <br /> POTENCIA.', img: '/lata-13energy-recovery-frutilla.png', cat: 'RECOVERY', idx: 1 },
-    { name: 'COCO', type: 'RECOVERY + COLÁGENO', color: '#A5F3FC', tagline: 'RESTORE & <br /> STRENGTHEN.', img: '/lata-13energy-recovery-colageno-coco.png', cat: 'COLÁGENO', idx: 0 },
+    { name: 'COCO', type: 'RECOVERY + COLÁGENO', color: '#A5F3FC', tagline: 'REPARACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-colageno-coco.png', cat: 'COLÁGENO', idx: 0 },
     { name: 'NARANJA', type: 'RECOVERY + COLÁGENO', color: '#FB923C', tagline: 'ARTICULACIONES <br /> FUERTES.', img: '/lata-13energy-recovery-colageno-naranja.png', cat: 'COLÁGENO', idx: 1 }
   ];
 
@@ -29,33 +28,26 @@ const Hero = () => {
   const handleGoToCatalog = () => {
     const current = allProducts[currentSlide];
     setSelection(current.cat, current.idx);
-    // Scrolleo suave a la sección
     document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-13black font-sans">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-10 blur-[160px] transition-all duration-1000 rounded-full" style={{ backgroundColor: allProducts[currentSlide].color }}></div>
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#050505] font-sans">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-10 blur-[160px] transition-all duration-1000 rounded-full pointer-events-none" style={{ backgroundColor: allProducts[currentSlide].color }}></div>
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         <div className="text-center md:text-left py-10 order-2 md:order-1">
-          <span className="px-4 py-1 rounded-full text-[10px] font-black tracking-[0.3em] border mb-4 inline-block" style={{ color: allProducts[currentSlide].color, borderColor: allProducts[currentSlide].color + '40' }}>
+          <span className="px-4 py-1 rounded-full text-[10px] font-black tracking-[0.3em] border mb-4 inline-block transition-all duration-700 uppercase" style={{ color: allProducts[currentSlide].color, borderColor: allProducts[currentSlide].color + '40' }}>
             {allProducts[currentSlide].type}: {allProducts[currentSlide].name}
           </span>
-          <h1 className="text-7xl md:text-[100px] lg:text-[120px] font-black text-white leading-[0.85] italic uppercase mb-6 font-display" dangerouslySetInnerHTML={{ __html: allProducts[currentSlide].tagline }}></h1>
+          <h1 className="text-7xl md:text-[100px] lg:text-[120px] font-black text-white leading-[0.85] italic uppercase mb-6 font-display transition-all duration-700 tracking-tighter" dangerouslySetInnerHTML={{ __html: allProducts[currentSlide].tagline }}></h1>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button 
-              onClick={handleGoToCatalog}
-              style={{ backgroundColor: allProducts[currentSlide].color }} 
-              className="px-10 py-5 text-black font-black text-xl rounded-full hover:scale-105 transition-all uppercase italic text-center shadow-xl"
-            >
-              Ver Catálogo
-            </button>
+            <button onClick={handleGoToCatalog} style={{ backgroundColor: allProducts[currentSlide].color }} className="px-10 py-5 text-black font-black text-xl rounded-full hover:scale-105 transition-all uppercase italic text-center shadow-xl">Ver Catálogo</button>
             <a href="#distribuidores" className="px-10 py-5 border-2 border-white/10 text-white font-black text-xl rounded-full hover:bg-white hover:text-black transition-all uppercase italic text-center">Distribuidores</a>
           </div>
         </div>
-        <div className="relative flex justify-center items-center h-[400px] md:h-[600px] order-1 md:order-2">
+        <div className="relative flex justify-center items-center h-[400px] md:h-[700px] order-1 md:order-2">
           {allProducts.map((product, index) => (
-            <img key={index} src={product.img} alt={product.name} className={`absolute z-10 w-auto h-full max-h-[450px] md:max-h-[650px] drop-shadow-2xl animate-float transition-all duration-1000 object-contain ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`} />
+            <img key={index} src={product.img} alt={product.name} className={`absolute z-10 w-auto h-full max-h-[450px] md:max-h-[650px] lg:max-h-[750px] drop-shadow-[0_35px_45px_rgba(0,0,0,0.8)] animate-float transition-all duration-1000 ease-in-out object-contain ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-0 scale-90 translate-y-10 pointer-events-none'}`} />
           ))}
         </div>
       </div>
