@@ -1,31 +1,86 @@
+import { useState } from 'react';
+import { useCart } from '../../store/useCart';
+
 const Distributors = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('');
+  const { showNotification } = useCart(); // <--- IMPORTAMOS NOTIFICACIÓN
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('Enviando...');
+
+    try {
+      const response = await fetch('http://localhost:5001/api/distributors', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('');
+        showNotification("SOLICITUD ENVIADA AL TEAM 13"); // <--- DISPARA EL TOAST
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('Error al enviar. Intentá nuevamente.');
+        showNotification("ERROR AL ENVIAR SOLICITUD", "error");
+      }
+    } catch (error) {
+      setStatus('Error de conexión con el servidor.');
+      showNotification("ERROR DE CONEXIÓN", "error");
+    }
+  };
+
   return (
-    <section id="distribuidores" className="py-32 bg-black text-white">
+    <section id="distribuidores" className="py-32 bg-black text-white font-sans">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-20">
         <div className="flex-1 text-center md:text-left">
           <h2 className="text-6xl md:text-8xl font-black font-display italic uppercase mb-6 leading-none tracking-tighter">
-            Llevá la <br /><span className="text-13neon">Energía</span> a tu zona
+            Llevá la <br /><span className="text-[#99FF00]">Energía</span> a tu zona
           </h2>
-          <p className="text-gray-400 text-lg mb-10 max-w-lg">
-            Buscamos gimnasios, tiendas de suplementos y distribuidores mayoristas. Unimate al equipo de 13Energy.
-          </p>
-          <div className="flex flex-wrap justify-center md:justify-start gap-6">
-            {['Envios a todo el país', 'Precios Mayoristas', 'Soporte de Marca'].map(i => (
-              <div key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-13neon border border-13neon/30 px-4 py-2 rounded-full">
-                <span>●</span> {i}
-              </div>
-            ))}
+          <div className="flex flex-col gap-4 items-center md:items-start mt-10">
+             <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Escribinos directamente:</p>
+             <a href="mailto:13energy.ok@gmail.com" className="text-white hover:text-[#99FF00] transition-colors font-display text-2xl italic tracking-widest uppercase">
+                13ENERGY.OK@GMAIL.COM
+             </a>
           </div>
         </div>
         
         <div className="flex-1 w-full max-w-xl">
-          <form className="bg-13gray p-8 md:p-12 rounded-[40px] border border-white/5 shadow-2xl flex flex-col gap-5">
-            <input type="text" placeholder="NOMBRE COMPLETO" className="bg-black border border-white/10 p-5 rounded-2xl focus:border-13neon outline-none transition-all uppercase font-bold text-xs tracking-widest text-white placeholder:text-gray-700" />
-            <input type="email" placeholder="EMAIL" className="bg-black border border-white/10 p-5 rounded-2xl focus:border-13neon outline-none transition-all uppercase font-bold text-xs tracking-widest text-white placeholder:text-gray-700" />
-            <textarea placeholder="MENSAJE O CIUDAD" rows={3} className="bg-black border border-white/10 p-5 rounded-2xl focus:border-13neon outline-none transition-all uppercase font-bold text-xs tracking-widest text-white placeholder:text-gray-700"></textarea>
-            <button className="bg-13neon text-black font-black uppercase italic py-6 rounded-2xl hover:scale-[1.02] transition-all font-display text-2xl tracking-widest shadow-lg shadow-13neon/20">
+          <form onSubmit={handleSubmit} className="bg-[#0D0D0D] p-8 md:p-12 rounded-[40px] border border-white/5 shadow-2xl flex flex-col gap-5">
+            <input 
+              type="text" 
+              required
+              placeholder="NOMBRE COMPLETO" 
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="bg-black border border-white/10 p-5 rounded-2xl focus:border-[#99FF00] outline-none transition-all font-bold text-xs text-white placeholder:text-gray-700" 
+            />
+            <input 
+              type="email" 
+              required
+              placeholder="EMAIL" 
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              className="bg-black border border-white/10 p-5 rounded-2xl focus:border-[#99FF00] outline-none transition-all font-bold text-xs text-white placeholder:text-gray-700" 
+            />
+            <textarea 
+              placeholder="MENSAJE O CIUDAD" 
+              rows={3} 
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              className="bg-black border border-white/10 p-5 rounded-2xl focus:border-[#99FF00] outline-none transition-all font-bold text-xs text-white placeholder:text-gray-700"
+            ></textarea>
+            
+            <button type="submit" className="bg-[#99FF00] text-black font-black uppercase italic py-6 rounded-2xl hover:scale-[1.02] transition-all font-display text-2xl tracking-widest active:scale-95 shadow-xl shadow-[#99FF00]/10">
               Enviar Solicitud
             </button>
+            
+            {status && (
+              <p className="text-[10px] text-center font-black uppercase tracking-widest text-[#99FF00] animate-pulse">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>

@@ -1,137 +1,165 @@
-import { useState } from 'react';
+import { useCart } from '../../store/useCart';
+import { PRICING, PACK_PRICE } from '../../config/constants'; // <--- RESTAURAMOS IMPORT
 
 const ProductShowcase = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const { selectedCategory, selectedFlavor, setSelection, addItem, toggleCart } = useCart();
 
-  const products = [
-    {
-      name: 'LIMA',
-      color: '#99FF00',
-      img: '/lata-13energy.png',
-      tagline: 'READY TO DRINK',
-      description: 'Nuestra fórmula original. Energía cítrica pura para entrenamientos de alta intensidad.'
+  const lines = {
+    'PRE-WORK': {
+      tag: 'POWER & ENERGY',
+      products: [
+        { name: 'LIMA', color: '#99FF00', img: '/lata-13energy.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
+        { name: 'MANGO', color: '#FF8000', img: '/lata-13energy-mango.png', desc: 'Dulzor tropical con la potencia de 400mg de cafeína.' },
+        { name: 'FRUTILLA', color: '#FF1E1E', img: '/lata-13energy-frutilla.png', desc: 'Balance perfecto entre frutilla y naranja.' }
+      ],
+      nutrition: [
+        { label: 'BETA ALANINA', value: '+6000mg' },
+        { label: 'CREATINA', value: '+5000mg' },
+        { label: 'CAFEÍNA', value: '400mg' },
+        { label: 'CITRULINA', value: '+2000mg' },
+        { label: 'L-ARGININA', value: '+2000mg' },
+        { label: 'CALORÍAS', value: '9KCAL' }
+      ]
     },
-    {
-      name: 'MANGO',
-      color: '#FF8000',
-      img: '/lata-13energy-mango.png',
-      tagline: 'EXPLOSIÓN TROPICAL',
-      description: 'El dulzor del mango maduro con la potencia de 400mg de cafeína. Sabor imbatible.'
+    'RECOVERY': {
+      tag: 'REPAIR & HYDRATE',
+      products: [
+        { name: 'LIMONADA', color: '#D4FF00', img: '/lata-13energy-recovery-limon.png', desc: 'Hidratación profunda. Recuperación sin estimulantes.' },
+        { name: 'FRUTILLA', color: '#FF4D6D', img: '/lata-13energy-recovery-frutilla.png', desc: 'Recuperación muscular avanzada con sabor a frutilla.' }
+      ],
+      nutrition: [
+        { label: 'BCAAs 2:1:1', value: '5000mg' },
+        { label: 'GLUTAMINA', value: '3000mg' },
+        { label: 'ELECTROLITOS', value: '1000mg' },
+        { label: 'VITAMINA C', value: '500mg' },
+        { label: 'MAGNESIO', value: '200mg' },
+        { label: 'AZÚCARES', value: '0g' }
+      ]
     },
-    {
-      name: 'FRUTILLA-NARANJA',
-      color: '#FF1E1E',
-      img: '/lata-13energy-frutilla.png',
-      tagline: 'FUERZA EXTREMA',
-      description: 'El balance perfecto entre frutilla y naranja. Rendimiento hardcore con un perfil único.'
+    'COLÁGENO': {
+      tag: 'RESTORE & JOINTS',
+      products: [
+        { name: 'COCO', color: '#A5F3FC', img: '/lata-13energy-recovery-colageno-coco.png', desc: 'Recuperación estructural. Ideal para salud articular.' },
+        { name: 'NARANJA', color: '#FB923C', img: '/lata-13energy-recovery-colageno-naranja.png', desc: 'Sabor naranja vibrante con el poder del colágeno.' }
+      ],
+      nutrition: [
+        { label: 'COLÁGENO', value: '5000mg' },
+        { label: 'BCAAs', value: '3000mg' },
+        { label: 'MAGNESIO', value: '200mg' },
+        { label: 'VITAMINA D3', value: '10µg' },
+        { label: 'ZINC', value: '15mg' },
+        { label: 'CALORÍAS', value: '18KCAL' }
+      ]
     }
-  ];
+  };
 
-  const nutrition = [
-    { label: 'BETA ALANINA', value: '6550mg' },
-    { label: 'CREATINA', value: '5440mg' },
-    { label: 'CITRULINA', value: '2175mg' },
-    { label: 'L-ARGININA', value: '2175mg' },
-    { label: 'L-TAURINA', value: '540mg' },
-    { label: 'CAFEÍNA', value: '400mg' },
-  ];
+  const currentLine = lines[selectedCategory as keyof typeof lines];
+  const currentProduct = currentLine.products[selectedFlavor] || currentLine.products[0];
+
+  const handleAdd = () => {
+    addItem({
+      name: `${selectedCategory} - ${currentProduct.name}`,
+      img: currentProduct.img,
+      price: PACK_PRICE 
+    });
+    toggleCart();
+  };
 
   return (
-    <section id="productos" className="pt-10 pb-24 bg-13black">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section id="productos" className="py-20 bg-[#050505] font-sans">
+      <div className="container mx-auto px-6 max-w-6xl text-center">
         
-        {/* Selector de Sabores (Pegado a la caja) */}
+        {/* Selector de Categoría */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 border-b border-white/5 pb-6">
+          {Object.keys(lines).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelection(cat, 0)}
+              className={`text-xl md:text-3xl font-black italic font-display uppercase transition-all ${
+                selectedCategory === cat ? 'text-white scale-110' : 'text-gray-700 hover:text-gray-400'
+              }`}
+            >
+              {cat === 'COLÁGENO' ? 'RECOVERY + COLÁGENO' : cat}
+              {selectedCategory === cat && <span className="text-13neon ml-1">.</span>}
+            </button>
+          ))}
+        </div>
+
+        {/* Selector de Sabor */}
         <div className="flex flex-wrap justify-center gap-3 mb-2">
-          {products.map((p, idx) => (
+          {currentLine.products.map((p, idx) => (
             <button
               key={idx}
-              onClick={() => setActiveTab(idx)}
-              className={`px-6 py-2 rounded-t-2xl font-black italic uppercase tracking-widest transition-all duration-300 border-x border-t text-[10px] ${
-                activeTab === idx 
-                ? 'bg-white text-black border-white' 
-                : 'bg-transparent text-gray-400 border-white/5 hover:border-white/10'
+              onClick={() => setSelection(selectedCategory, idx)}
+              className={`px-6 py-2 rounded-t-2xl font-black italic uppercase transition-all border-x border-t text-[10px] ${
+                selectedFlavor === idx ? 'bg-white text-black' : 'bg-transparent text-gray-500 border-white/5'
               }`}
-              style={{ borderColor: activeTab === idx ? p.color : '' }}
+              style={{ borderColor: selectedFlavor === idx ? p.color : '' }}
             >
               {p.name}
             </button>
           ))}
         </div>
 
-        {/* CONTENEDOR PRINCIPAL */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-13gray rounded-b-[32px] rounded-tr-[32px] rounded-tl-none border border-white/5 px-8 pt-4 pb-12">
+        {/* Contenedor de Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-[#0D0D0D] rounded-b-[32px] rounded-tr-[32px] border border-white/5 px-8 pt-6 pb-12 shadow-2xl">
           
-          {/* COLUMNA IZQUIERDA: LATA */}
           <div className="relative flex items-center justify-center h-[400px] md:h-[550px]">
-            <div 
-              className="absolute w-48 h-48 md:w-64 md:h-64 blur-[100px] opacity-20 transition-all duration-1000 rounded-full"
-              style={{ backgroundColor: products[activeTab].color }}
-            ></div>
-            
+            <div className="absolute w-48 h-48 md:w-64 md:h-64 blur-[100px] opacity-20 rounded-full transition-all duration-1000" style={{ backgroundColor: currentProduct.color }}></div>
             <img 
-              key={activeTab}
-              src={products[activeTab].img} 
-              alt={products[activeTab].name} 
-              className="relative z-10 w-auto h-full max-h-[350px] md:max-h-[500px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] animate-float object-contain transition-all duration-700"
+              key={currentProduct.name + selectedCategory}
+              src={currentProduct.img} 
+              alt={currentProduct.name} 
+              className="relative z-10 w-auto h-full max-h-[500px] drop-shadow-2xl animate-float object-contain transition-all duration-700"
             />
           </div>
 
-          {/* COLUMNA DERECHA: INFO */}
-          <div className="flex flex-col justify-center">
-            
-            <div className="mb-6">
-              <h3 className="text-4xl md:text-6xl font-black italic font-display uppercase leading-none mb-3 tracking-tighter" style={{ color: products[activeTab].color }}>
-                {products[activeTab].tagline}
-              </h3>
-              <p className="text-gray-400 text-sm md:text-base font-medium max-w-md">
-                {products[activeTab].description}
-              </p>
-            </div>
+          <div className="flex flex-col text-left">
+            <h3 className="text-4xl md:text-6xl font-black italic font-display uppercase leading-none mb-3" style={{ color: currentProduct.color }}>
+              {currentLine.tag}
+            </h3>
+            <p className="text-[#D1D1D1] text-lg font-medium mb-6 max-w-md">{currentProduct.desc}</p>
 
-            {/* Ficha Técnica */}
-            <div className="flex gap-3 mb-6">
-              <div className="bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-                <span className="text-white font-bold uppercase italic font-display text-lg tracking-widest">473ML</span>
-              </div>
-              <div className="bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-                <span className="text-white font-bold uppercase italic font-display text-lg tracking-widest">FÓRMULA RTD</span>
-              </div>
-            </div>
-
-            {/* TABLA NUTRICIONAL (CORREGIDA LEGIBILIDAD) */}
-            <div className="grid grid-cols-3 gap-y-4 gap-x-6 mb-8 py-6 border-y border-white/10">
-              {nutrition.map((n, i) => (
+            <div className="grid grid-cols-3 gap-y-4 gap-x-6 mb-8 py-6 border-y border-white/10 text-white">
+              {currentLine.nutrition.map((n, i) => (
                 <div key={i} className="flex flex-col">
-                  {/* Nombre del ingrediente en un gris mucho más claro y bold */}
-                  <span className="text-gray-300 font-black uppercase tracking-widest text-[9px] mb-1">
-                    {n.label}
-                  </span>
-                  <span className="text-white font-black text-xl md:text-2xl font-display italic leading-none">
-                    {n.value}
-                  </span>
+                  <span className="text-gray-400 font-black uppercase text-[9px] mb-1">{n.label}</span>
+                  <span className="text-white font-black text-xl md:text-2xl font-display italic leading-none">{n.value}</span>
                 </div>
               ))}
             </div>
 
-            {/* Botón y Advertencia */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-6">
-                <button 
-                  className="px-10 py-4 rounded-full font-black text-lg italic uppercase transition-all shadow-xl hover:scale-105 active:scale-95"
-                  style={{ backgroundColor: products[activeTab].color, color: 'black' }}
-                >
-                  Comprar Pack x6
-                </button>
-                <span className="text-white font-black uppercase italic text-[10px] tracking-widest">Stock Disponible</span>
+            {/* --- BLOQUE DE PRECIO Y BOTÓN RESTAURADO --- */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
+              <button 
+                onClick={handleAdd}
+                className="px-12 py-5 rounded-full font-black text-xl italic uppercase shadow-xl hover:scale-105 active:scale-95 transition-all w-fit"
+                style={{ backgroundColor: currentProduct.color, color: 'black' }}
+              >
+                Pedir Pack x6
+              </button>
+
+              <div className="flex flex-col">
+                <span className="text-white font-black text-3xl font-display italic leading-none">
+                  ${PRICING.UNIT_PRICE.toLocaleString()}
+                </span>
+                <span className="text-gray-500 font-bold uppercase text-[9px] tracking-widest mt-1">
+                  Precio por lata
+                </span>
               </div>
-
-              <p className="text-[9px] text-gray-500 uppercase tracking-widest leading-tight text-justify opacity-80 border-t border-white/5 pt-4">
-                <strong className="text-red-600 italic">ADVERTENCIA:</strong> No apto para embarazadas, lactancia ni niños. No mezclar con alcohol. Máximo 1 envase por día. Suplemento para deportistas de alto rendimiento.
-              </p>
             </div>
+            {/* ------------------------------------------- */}
 
+            {selectedCategory === 'PRE-WORK' && (
+              <div className="pt-6 border-t border-white/5">
+                <p className="text-[9px] text-gray-500 uppercase tracking-widest leading-relaxed text-justify italic">
+                  <strong className="text-white font-bold">IMPORTANTE:</strong> No utilizar en caso de embarazo, lactancia ni niños. Consumir máximo 1 envase por día. No mezclar con alcohol.
+                </p>
+              </div>
+            )}
           </div>
         </div>
+
       </div>
     </section>
   );

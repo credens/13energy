@@ -8,13 +8,16 @@ export default {
     extend: {
       colors: {
         '13neon': '#99FF00',
-        '13black': '#0D0D0D',
-        '13gray': '#080808',
+        '13black': '#050505',
+        '13gray': '#0D0D0D',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Barlow', 'sans-serif'],
         display: ['Teko', 'sans-serif'],
       },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      }
     },
   },
   plugins: [],

@@ -1,35 +1,34 @@
+import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Hero from './components/home/Hero';
-import ProductShowcase from './components/home/ProductShowcase';
-import Distributors from './components/home/Distributors';
+import CartDrawer from './components/cart/CartDrawer';
+import Notification from './components/ui/Notification'; // <--- NUEVO
+import Home from './pages/Home';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
-    <div className="min-h-screen bg-13black">
-      <Navbar />
-      <Hero />
-      
-      {/* SEPARADOR DE SECCIÓN: Línea Neon con Glow */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-13neon/50 to-transparent relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-13neon/10 blur-[60px] rounded-full"></div>
-      </div>
-
-      <ProductShowcase />
-
-      {/* SEPARADOR FINAL */}
-      <div className="w-full h-px bg-white/5"></div>
-
-      <Distributors />
-      
-      <footer className="py-20 bg-black text-center border-t border-white/5">
-        <div className="text-2xl font-black italic text-white mb-4 font-display">
-          13<span className="text-13neon">ENERGY</span>
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-[#050505] selection:bg-[#99FF00] selection:text-black font-sans">
+          <Navbar />
+          <CartDrawer />
+          <Notification /> {/* <--- INYECTADO AQUÍ */}
+          
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+          
+          <footer className="py-20 bg-black text-center border-t border-white/5 text-white">
+            <div className="text-3xl font-black italic mb-4 font-display tracking-tighter uppercase">
+              13<span className="text-[#99FF00]">ENERGY</span>
+            </div>
+            <p className="text-gray-600 text-[9px] font-bold uppercase tracking-[0.5em]">© 2024 Hardcore Performance - Argentina</p>
+          </footer>
         </div>
-        <p className="text-gray-600 text-[10px] uppercase tracking-[0.5em]">
-          © 2024 Hardcore Performance - Argentina
-        </p>
-      </footer>
-    </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 
