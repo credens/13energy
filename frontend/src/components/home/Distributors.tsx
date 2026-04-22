@@ -11,7 +11,7 @@ const Distributors = () => {
     setStatus('Enviando...');
 
     try {
-      const response = await fetch('http://localhost:5001/api/distributors', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/distributors`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -72,8 +72,8 @@ const Distributors = () => {
               className="bg-black border border-white/10 p-5 rounded-2xl focus:border-[#99FF00] outline-none transition-all font-bold text-xs text-white placeholder:text-gray-700"
             ></textarea>
             
-            <button type="submit" className="bg-[#99FF00] text-black font-black uppercase italic py-6 rounded-2xl hover:scale-[1.02] transition-all font-display text-2xl tracking-widest active:scale-95 shadow-xl shadow-[#99FF00]/10">
-              Enviar Solicitud
+            <button type="submit" disabled={status === 'Enviando...'} className="bg-[#99FF00] text-black font-black uppercase italic py-6 rounded-2xl hover:scale-[1.02] transition-all font-display text-2xl tracking-widest active:scale-95 shadow-xl shadow-[#99FF00]/10 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100">
+              {status === 'Enviando...' ? 'Enviando...' : 'Enviar Solicitud'}
             </button>
             
             {status && (

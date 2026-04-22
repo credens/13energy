@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useCart } from '../../store/useCart';
 
+const allProducts = [
+  { name: 'LIMA', type: 'PRE-WORK', color: '#99FF00', tagline: 'READY TO <br /> DRINK.', img: '/lata-13energy-lima.png', cat: 'PRE-WORK', idx: 0 },
+  { name: 'MANGO', type: 'PRE-WORK', color: '#FF8000', tagline: 'EXPLOSIÓN <br /> TROPICAL.', img: '/lata-13energy-mango.png', cat: 'PRE-WORK', idx: 1 },
+  { name: 'FRUTILLA', type: 'PRE-WORK', color: '#FF1E1E', tagline: 'FUERZA <br /> EXTREMA.', img: '/lata-13energy-frutilla.png', cat: 'PRE-WORK', idx: 2 },
+  { name: 'LIMONADA', type: 'RECOVERY', color: '#D4FF00', tagline: 'RECUPERACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-limon.png', cat: 'RECOVERY', idx: 0 },
+  { name: 'RECO-FRUTILLA', type: 'RECOVERY', color: '#FF4D6D', tagline: 'REHIDRATÁ TU <br /> POTENCIA.', img: '/lata-13energy-recovery-frutilla.png', cat: 'RECOVERY', idx: 1 },
+  { name: 'COCO', type: 'RECOVERY + COLÁGENO', color: '#A5F3FC', tagline: 'REPARACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-colageno-coco.png', cat: 'COLÁGENO', idx: 0 },
+  { name: 'NARANJA', type: 'RECOVERY + COLÁGENO', color: '#FB923C', tagline: 'ARTICULACIONES <br /> FUERTES.', img: '/lata-13energy-recovery-colageno-naranja.png', cat: 'COLÁGENO', idx: 1 }
+];
+
 const Hero = () => {
   const { setSelection } = useCart();
-  
-  const allProducts = [
-    { name: 'LIMA', type: 'PRE-WORK', color: '#99FF00', tagline: 'READY TO <br /> DRINK.', img: '/lata-13energy.png', cat: 'PRE-WORK', idx: 0 },
-    { name: 'MANGO', type: 'PRE-WORK', color: '#FF8000', tagline: 'EXPLOSIÓN <br /> TROPICAL.', img: '/lata-13energy-mango.png', cat: 'PRE-WORK', idx: 1 },
-    { name: 'FRUTILLA', type: 'PRE-WORK', color: '#FF1E1E', tagline: 'FUERZA <br /> EXTREMA.', img: '/lata-13energy-frutilla.png', cat: 'PRE-WORK', idx: 2 },
-    { name: 'LIMONADA', type: 'RECOVERY', color: '#D4FF00', tagline: 'RECUPERACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-limon.png', cat: 'RECOVERY', idx: 0 },
-    { name: 'RECO-FRUTILLA', type: 'RECOVERY', color: '#FF4D6D', tagline: 'REHIDRATÁ TU <br /> POTENCIA.', img: '/lata-13energy-recovery-frutilla.png', cat: 'RECOVERY', idx: 1 },
-    { name: 'COCO', type: 'RECOVERY + COLÁGENO', color: '#A5F3FC', tagline: 'REPARACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-colageno-coco.png', cat: 'COLÁGENO', idx: 0 },
-    { name: 'NARANJA', type: 'RECOVERY + COLÁGENO', color: '#FB923C', tagline: 'ARTICULACIONES <br /> FUERTES.', img: '/lata-13energy-recovery-colageno-naranja.png', cat: 'COLÁGENO', idx: 1 }
-  ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -46,9 +46,14 @@ const Hero = () => {
           </div>
         </div>
         <div className="relative flex justify-center items-center h-[400px] md:h-[700px] order-1 md:order-2">
-          {allProducts.map((product, index) => (
-            <img key={index} src={product.img} alt={product.name} className={`absolute z-10 w-auto h-full max-h-[450px] md:max-h-[650px] lg:max-h-[750px] drop-shadow-[0_35px_45px_rgba(0,0,0,0.8)] animate-float transition-all duration-1000 ease-in-out object-contain ${currentSlide === index ? 'opacity-100 scale-100' : 'opacity-0 scale-90 translate-y-10 pointer-events-none'}`} />
-          ))}
+          {allProducts.map((product, index) => {
+            const isActive = currentSlide === index;
+            const isNext = index === (currentSlide + 1) % allProducts.length;
+            if (!isActive && !isNext) return null;
+            return (
+              <img key={index} src={product.img} alt={`Lata de 13Energy ${product.type} sabor ${product.name} - Bebida energética 473ml`} className={`absolute z-10 w-auto h-full max-h-[450px] md:max-h-[650px] lg:max-h-[750px] drop-shadow-[0_35px_45px_rgba(0,0,0,0.8)] animate-float transition-all duration-1000 ease-in-out object-contain ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-90 translate-y-10 pointer-events-none'}`} />
+            );
+          })}
         </div>
       </div>
     </section>

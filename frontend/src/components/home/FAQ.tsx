@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ChevronDown, ChevronUp, Zap, ShieldCheck, Clock, Flame, Droplets, Activity } from 'lucide-react';
 
 const FAQ = () => {
@@ -39,8 +40,22 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-32 bg-[#050505] border-t border-white/5 font-sans">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        })}</script>
+      </Helmet>
       <div className="container mx-auto px-6 max-w-4xl">
-        
+
         <div className="text-center mb-16">
           <span className="text-[#99FF00] font-black tracking-[0.4em] text-[10px] uppercase">Manual de Usuario</span>
           <h2 className="text-5xl md:text-7xl font-black italic font-display uppercase leading-none text-white tracking-tighter mt-4">
@@ -58,6 +73,8 @@ const FAQ = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
                 className="w-full flex items-center justify-between p-6 md:p-10 text-left outline-none"
               >
                 <div className="flex items-center gap-4">
@@ -69,7 +86,8 @@ const FAQ = () => {
                 {openIndex === index ? <ChevronUp className="text-[#99FF00]" /> : <ChevronDown className="text-gray-600" />}
               </button>
 
-              <div 
+              <div
+                id={`faq-answer-${index}`}
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   openIndex === index ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
                 }`}

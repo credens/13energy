@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../store/useCart';
 import { X, Trash2, ShoppingBag, Plus, Minus } from 'lucide-react';
@@ -6,7 +7,13 @@ const CartDrawer = () => {
   const { cart, isOpen, toggleCart, removeItem, updateQuantity } = useCart();
   const navigate = useNavigate();
 
-  // Si el carrito está cerrado, no renderizamos nada
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') toggleCart(); };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, toggleCart]);
+
   if (!isOpen) return null;
 
   // Cálculo del total
@@ -22,9 +29,13 @@ const CartDrawer = () => {
     <div className="fixed inset-0 z-[100] flex justify-end font-sans">
       
       {/* Fondo desenfocado (Overlay) */}
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300" 
+      <div
+        role="button"
+        aria-label="Cerrar carrito"
+        tabIndex={0}
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300"
         onClick={toggleCart}
+        onKeyDown={(e) => e.key === 'Enter' && toggleCart()}
       ></div>
       
       {/* Panel del Carrito */}
@@ -36,8 +47,9 @@ const CartDrawer = () => {
             <ShoppingBag className="text-[#99FF00]" size={24} />
             <h2 className="text-3xl font-black italic font-display text-white uppercase tracking-tight">Tu Pedido</h2>
           </div>
-          <button 
-            onClick={toggleCart} 
+          <button
+            onClick={toggleCart}
+            aria-label="Cerrar carrito"
             className="text-gray-500 hover:text-white transition-colors p-2"
           >
             <X size={32} />
@@ -80,8 +92,10 @@ const CartDrawer = () => {
                     </button>
                     
                     {/* Input Editable */}
-                    <input 
-                      type="number" 
+                    <input
+                      type="number"
+                      min="1"
+                      max="99"
                       value={item.quantity}
                       onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
                       className="w-12 bg-transparent text-center text-white font-black text-lg outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"

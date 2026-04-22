@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '../store/useCart';
 import { ShoppingBag, ChevronLeft, Truck, ShieldCheck, MessageCircle, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -37,12 +38,16 @@ const Checkout = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Datos capturados:", formData);
-    alert("Conectando con Mercado Pago...");
+    alert("Integración con Mercado Pago próximamente. Tu pedido fue registrado.");
   };
 
   return (
     <div className="min-h-screen bg-[#050505] pt-32 pb-20 font-sans text-white">
+      <Helmet>
+        <title>Checkout | 13Energy - Finalizar Compra</title>
+        <meta name="description" content="Completá tu pedido de 13Energy. Envío a todo Argentina. Pago seguro con Mercado Pago." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <div className="container mx-auto px-6 max-w-7xl">
         
         <div className="mb-12">

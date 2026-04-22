@@ -7,7 +7,7 @@ const Notification = () => {
   if (!notification.visible) return null;
 
   return (
-    <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[200] w-full max-w-sm px-4 animate-in fade-in zoom-in duration-300 font-sans">
+    <div role="status" aria-live="polite" aria-atomic="true" className="fixed top-24 left-1/2 -translate-x-1/2 z-[200] w-full max-w-sm px-4 animate-in fade-in zoom-in duration-300 font-sans">
       <div className={`
         relative overflow-hidden p-4 rounded-2xl border flex items-center gap-4 shadow-2xl backdrop-blur-md
         ${notification.type === 'success' 

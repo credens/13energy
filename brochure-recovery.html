@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Teko:wght@400;700&display=swap" rel="stylesheet">
+    <title>Brochure 13Energy Recovery</title>
+    <style>
+        body { font-family: 'Barlow', sans-serif; background-color: #050505; color: white; }
+        .font-display { font-family: 'Teko', sans-serif; }
+        .bg-card { background-color: #0D0D0D; }
+        .text-cyan { color: #00E0FF; }
+        .text-peach { color: #FB923C; }
+    </style>
+</head>
+<body class="p-0 m-0 border-[16px] border-[#0D0D0D]">
+    
+    <div class="max-w-7xl mx-auto p-12 relative overflow-hidden">
+        
+        <!-- HEADER -->
+        <header class="flex justify-between items-center mb-16 border-b border-white/5 pb-8">
+            <div>
+                <h1 class="font-display text-7xl font-black italic leading-none tracking-tighter">
+                    13<span class="text-white">ENERGY</span> <span class="text-gray-600 font-normal">LABS</span>
+                </h1>
+                <p class="text-gray-500 font-black tracking-[0.4em] text-xs mt-2 uppercase italic">Ciencia aplicada a la recuperación muscular</p>
+            </div>
+            <div class="text-right flex gap-4">
+                <div class="bg-[#00E0FF]/10 border border-[#00E0FF]/30 px-4 py-2 rounded-xl text-[#00E0FF] font-black text-[10px] tracking-widest uppercase">RECOVERY LINE</div>
+                <div class="bg-[#FB923C]/10 border border-[#FB923C]/30 px-4 py-2 rounded-xl text-[#FB923C] font-black text-[10px] tracking-widest uppercase">COLÁGENO LINE</div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-2 gap-20">
+            
+            <!-- SECCIÓN RECOVERY (AZUL/CYAN) -->
+            <div class="relative group">
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-[#00E0FF] opacity-5 blur-[100px] rounded-full"></div>
+                
+                <h2 class="font-display text-6xl font-black italic text-[#00E0FF] mb-6 uppercase">REPAIR & HYDRATE</h2>
+                
+                <div class="flex gap-8 items-start mb-10">
+                    <img src="./frontend/public/lata-13energy-recovery-limon.png" alt="Recovery" class="w-40 drop-shadow-[0_20px_40px_rgba(0,224,255,0.3)]">
+                    <div class="space-y-4 flex-1">
+                        <div class="bg-card p-6 rounded-3xl border border-white/5">
+                            <span class="text-[#00E0FF] font-display text-4xl font-black italic">5000mg BCAAs</span>
+                            <p class="text-gray-400 text-[11px] uppercase font-bold tracking-tighter mt-1">Ratio 2:1:1 para síntesis proteica inmediata.</p>
+                        </div>
+                        <div class="bg-card p-6 rounded-3xl border border-white/5">
+                            <span class="text-white font-display text-4xl font-black italic">+ ELECTROLITOS</span>
+                            <p class="text-gray-400 text-[11px] uppercase font-bold tracking-tighter mt-1">Sodio, Potasio y Magnesio para rehidratación celular.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-300 text-sm leading-relaxed border-l-2 border-[#00E0FF] pl-6 italic">
+                    Diseñada para frenar el catabolismo y acelerar la vuelta al ruedo. Sin estimulantes. <br>
+                    <strong>SABORES: LIMONADA / FRUTILLA</strong>
+                </p>
+            </div>
+
+            <!-- SECCIÓN COLÁGENO (NARANJA/PEACH) -->
+            <div class="relative group">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#FB923C] opacity-5 blur-[100px] rounded-full"></div>
+
+                <h2 class="font-display text-6xl font-black italic text-[#FB923C] mb-6 uppercase">RESTORE & JOINTS</h2>
+
+                <div class="flex gap-8 items-start mb-10">
+                    <div class="space-y-4 flex-1 text-right">
+                        <div class="bg-card p-6 rounded-3xl border border-white/5">
+                            <span class="text-[#FB923C] font-display text-4xl font-black italic">5000mg COLÁGENO</span>
+                            <p class="text-gray-400 text-[11px] uppercase font-bold tracking-tighter mt-1">Hidrolizado de máxima absorción para tendones y piel.</p>
+                        </div>
+                        <div class="bg-card p-6 rounded-3xl border border-white/5">
+                            <span class="text-white font-display text-4xl font-black italic">+ VITAMINA D3</span>
+                            <p class="text-gray-400 text-[11px] uppercase font-bold tracking-tighter mt-1">Soporte inmunológico y fijación de calcio óseo.</p>
+                        </div>
+                    </div>
+                    <img src="./frontend/public/lata-13energy-recovery-colageno-coco.png" alt="Colágeno" class="w-40 drop-shadow-[0_20px_40px_rgba(251,146,60,0.3)]">
+                </div>
+
+                <p class="text-gray-300 text-sm leading-relaxed border-r-2 border-[#FB923C] pr-6 text-right italic">
+                    Protección estructural para deportistas con alto impacto articular y óseo. <br>
+                    <strong>SABORES: COCO / NARANJA</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-20 pt-10 border-t border-white/5 flex justify-between items-end">
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-white flex items-center justify-center rounded-xl">
+                        <span class="text-black font-black text-2xl">13</span>
+                    </div>
+                    <p class="text-white font-black italic font-display text-2xl tracking-widest uppercase">Sistema de Nutrición Integral</p>
+                </div>
+                <p class="text-gray-600 text-[9px] uppercase tracking-[0.4em] font-bold">13ENERGY.OK@GMAIL.COM | ARGENTINA PERFORMANCE LABS</p>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest leading-loose max-w-xs ml-auto">
+                    PRODUCTOS LISTOS PARA EL CONSUMO (RTD). <br> 
+                    SIN AZÚCAR. SIN TACC. CALIDAD DE LABORATORIO.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -6,6 +6,7 @@ import Notification from './components/ui/Notification';
 import ScrollProgress from './components/ui/ScrollProgress';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -15,6 +16,21 @@ function App() {
           <Helmet>
             <title>13Energy | Ready To Drink - Pre-Work & Recovery</title>
             <meta name="description" content="La bebida energética más potente del mercado. 400mg de cafeína, Creatina y Beta-Alanina. Sin azúcar, lista para tomar." />
+            <script type="application/ld+json">{JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "13Energy",
+              "url": "https://13energy.com.ar",
+              "logo": "https://13energy.com.ar/favicon.ico",
+              "sameAs": ["https://instagram.com/13energy.ok"],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "13energy.ok@gmail.com",
+                "contactType": "customer service",
+                "areaServed": "AR",
+                "availableLanguage": "Spanish"
+              }
+            })}</script>
           </Helmet>
 
           {/* Componentes Globales */}
@@ -27,6 +43,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           
           {/* Footer Unificado */}
@@ -39,7 +56,7 @@ function App() {
                 <a href="mailto:13energy.ok@gmail.com" className="hover:text-[#99FF00] transition-colors">Contacto</a>
             </div>
             <p className="text-gray-600 text-[9px] font-bold uppercase tracking-[0.5em] font-sans">
-              © 2024 Hardcore Performance - Argentina
+              © {new Date().getFullYear()} Hardcore Performance - Argentina
             </p>
           </footer>
         </div>

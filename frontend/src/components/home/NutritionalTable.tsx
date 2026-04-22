@@ -10,7 +10,7 @@ const NutritionalTable = () => {
   ];
 
   return (
-    <section id="productos" className="py-32 bg-13gray">
+    <section id="tabla-nutricional" className="py-32 bg-13gray">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto bg-13black p-8 md:p-16 rounded-[40px] border border-white/5 shadow-2xl relative overflow-hidden">
           

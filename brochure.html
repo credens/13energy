@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;800&family=Teko:wght@400;700&display=swap" rel="stylesheet">
+    <title>Brochure 13Energy Lima</title>
+    <style>
+        body { font-family: 'Barlow', sans-serif; background-color: #000; color: white; }
+        .font-display { font-family: 'Teko', sans-serif; }
+        .neon-text { color: #99FF00; text-shadow: 0 0 20px rgba(153, 255, 0, 0.5); }
+        .neon-border { border-color: rgba(153, 255, 0, 0.3); }
+        .bg-card { background-color: #0D0D0D; }
+    </style>
+</head>
+<body class="p-0 m-0 border-[16px] border-[#0D0D0D]">
+    
+    <!-- CONTENEDOR PRINCIPAL (Simulación de Hoja A4 Horizontal o Pantalla) -->
+    <div class="max-w-6xl mx-auto p-12 relative overflow-hidden">
+        
+        <!-- DECORACIÓN DE FONDO -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#99FF00] opacity-5 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/4"></div>
+
+        <header class="flex justify-between items-start mb-16">
+            <div>
+                <h1 class="font-display text-8xl font-black italic leading-none tracking-tighter">
+                    13<span class="text-[#99FF00]">ENERGY</span>
+                </h1>
+                <p class="text-[#99FF00] font-black tracking-[0.5em] text-sm mt-2 uppercase">Hardcore Performance Labs</p>
+            </div>
+            <div class="text-right">
+                <span class="border-2 border-[#99FF00] px-4 py-1 rounded-full text-[#99FF00] font-black italic text-xs tracking-widest uppercase">
+                    Fórmula Lanzamiento
+                </span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-12 gap-12 items-center">
+            
+            <!-- COLUMNA IZQUIERDA: POTENCIA -->
+            <div class="col-span-4 space-y-8">
+                <div class="bg-card p-8 rounded-[40px] border-l-4 border-[#99FF00] shadow-2xl">
+                    <h2 class="font-display text-6xl font-black italic leading-none mb-2">400<span class="text-3xl uppercase ml-2 text-gray-500">mg</span></h2>
+                    <p class="text-white font-black italic font-display text-2xl tracking-widest uppercase">Cafeína Anhídra</p>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed uppercase font-bold tracking-tighter">
+                        La dosis más potente del mercado en formato Ready to Drink. Energía inmediata sin picos de azúcar.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Beta Alanina</span>
+                        <span class="text-white font-display text-3xl font-bold">+6000mg</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Creatina Monohidrato</span>
+                        <span class="text-white font-display text-3xl font-bold">+5000mg</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Pump Matrix</span>
+                        <span class="text-white font-display text-3xl font-bold">+4000mg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: LA IMAGEN -->
+            <div class="col-span-4 relative flex justify-center">
+                <div class="absolute inset-0 bg-[#99FF00]/10 blur-[100px] rounded-full"></div>
+                <!-- Aquí deberías ver tu imagen de la lata -->
+                <img src="./frontend/public/lata-13energy-lima.png" alt="13Energy Lima" class="relative z-10 w-full drop-shadow-[0_40px_60px_rgba(0,0,0,0.9)]">
+            </div>
+
+            <!-- COLUMNA DERECHA: BENEFICIOS -->
+            <div class="col-span-4 space-y-10">
+                <div class="text-right">
+                    <h3 class="text-[#99FF00] font-display text-6xl font-black italic leading-none uppercase tracking-tighter">SABOR LIMA</h3>
+                    <p class="text-white font-black uppercase tracking-widest text-xs mt-2 italic">Refrescante / Ácido / Explosivo</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start text-right justify-end">
+                        <p class="text-[#D1D1D1] text-sm font-medium leading-tight">
+                            <strong class="text-white block mb-1 uppercase tracking-widest text-xs">PUMP EXTREMO</strong>
+                            Vasodilatación masiva para un flujo sanguíneo superior durante el entrenamiento.
+                        </p>
+                        <div class="w-1.5 h-12 bg-[#99FF00] shrink-0"></div>
+                    </div>
+
+                    <div class="flex gap-4 items-start text-right justify-end">
+                        <p class="text-[#D1D1D1] text-sm font-medium leading-tight">
+                            <strong class="text-white block mb-1 uppercase tracking-widest text-xs">RESISTENCIA</strong>
+                            Retrasa la fatiga muscular y el ácido láctico. Entrená más tiempo, más pesado.
+                        </p>
+                        <div class="w-1.5 h-12 bg-white shrink-0"></div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start text-right justify-end">
+                        <p class="text-[#D1D1D1] text-sm font-medium leading-tight">
+                            <strong class="text-white block mb-1 uppercase tracking-widest text-xs">READY TO DRINK</strong>
+                            Sin polvos. Sin shakers. Abrís la lata y empezás a rendir al 100%.
+                        </p>
+                        <div class="w-1.5 h-12 bg-gray-700 shrink-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER DEL BROCHURE -->
+        <footer class="mt-20 pt-10 border-t border-white/10 flex justify-between items-center">
+            <div class="flex gap-10">
+                <div class="flex flex-col">
+                    <span class="text-gray-500 font-bold uppercase text-[9px] tracking-widest">Contacto</span>
+                    <span class="text-white font-display text-xl">13ENERGY.OK@GMAIL.COM</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-gray-500 font-bold uppercase text-[9px] tracking-widest">Social</span>
+                    <span class="text-white font-display text-xl">@13ENERGY.OK</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-[9px] text-gray-600 uppercase tracking-[0.3em] font-bold max-w-sm">
+                    Suplemento dietario de alto rendimiento. Prohibida la venta a menores de 18 años.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

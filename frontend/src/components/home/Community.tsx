@@ -29,7 +29,7 @@ const Community = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {posts.map((post) => (
             <div key={post.id} className="relative group overflow-hidden rounded-[32px] aspect-square bg-black border border-white/5 shadow-2xl">
-              <img src={post.img} alt={post.type} className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
+              <img src={post.img} alt={`Comunidad 13Energy - ${post.type}: ${post.text}`} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="bg-13neon text-black text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">#{post.type}</span>

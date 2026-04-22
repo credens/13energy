@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '../../store/useCart';
 import { PACK_PRICE, PRICING } from '../../config/constants';
 
@@ -8,7 +9,7 @@ const ProductShowcase = () => {
     'PRE-WORK': {
       tag: 'POWER & ENERGY',
       products: [
-        { name: 'LIMA', color: '#99FF00', img: '/lata-13energy.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
+        { name: 'LIMA', color: '#99FF00', img: '/lata-13energy-lima.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
         { name: 'MANGO', color: '#FF8000', img: '/lata-13energy-mango.png', desc: 'Dulzor tropical con la potencia de 400mg de cafeína.' },
         { name: 'FRUTILLA', color: '#FF1E1E', img: '/lata-13energy-frutilla.png', desc: 'Balance perfecto entre frutilla y naranja.' }
       ],
@@ -46,6 +47,39 @@ const ProductShowcase = () => {
 
   return (
     <section id="productos" className="py-20 bg-[#050505] font-sans">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Bebidas energéticas 13Energy",
+          "itemListElement": [
+            {
+              "@type": "Product",
+              "name": "13Energy Pre-Work",
+              "description": "Bebida energética pre-workout con 400mg de cafeína, creatina y beta-alanina. Sin azúcar.",
+              "brand": { "@type": "Brand", "name": "13Energy" },
+              "offers": { "@type": "Offer", "price": "30000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://13energy.com.ar/#productos" },
+              "image": "https://13energy.com.ar/lata-13energy-lima.png"
+            },
+            {
+              "@type": "Product",
+              "name": "13Energy Recovery",
+              "description": "Bebida de recuperación con BCAAs, Glutamina y electrolitos. Sin estimulantes.",
+              "brand": { "@type": "Brand", "name": "13Energy" },
+              "offers": { "@type": "Offer", "price": "30000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://13energy.com.ar/#productos" },
+              "image": "https://13energy.com.ar/lata-13energy-recovery-limon.png"
+            },
+            {
+              "@type": "Product",
+              "name": "13Energy Recovery + Colágeno",
+              "description": "Bebida de recuperación con colágeno hidrolizado para articulaciones y tendones.",
+              "brand": { "@type": "Brand", "name": "13Energy" },
+              "offers": { "@type": "Offer", "price": "30000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock", "url": "https://13energy.com.ar/#productos" },
+              "image": "https://13energy.com.ar/lata-13energy-recovery-colageno-coco.png"
+            }
+          ]
+        })}</script>
+      </Helmet>
       <div className="container mx-auto px-6 max-w-6xl text-center">
         <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 border-b border-white/5 pb-6 text-white">
           {Object.keys(lines).map((cat) => (
@@ -63,7 +97,7 @@ const ProductShowcase = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-[#0D0D0D] rounded-b-[32px] rounded-tr-[32px] border border-white/5 px-8 pt-6 pb-12 shadow-2xl">
           <div className="relative flex items-center justify-center h-[400px] md:h-[550px]">
             <div className="absolute w-48 h-48 md:w-64 md:h-64 blur-[100px] opacity-20 rounded-full transition-all duration-1000" style={{ backgroundColor: currentProduct.color }}></div>
-            <img key={currentProduct.name + selectedCategory} src={currentProduct.img} alt={currentProduct.name} className="relative z-10 w-auto h-full max-h-[500px] drop-shadow-2xl animate-float object-contain" />
+            <img key={currentProduct.name + selectedCategory} src={currentProduct.img} alt={`Lata de 13Energy ${selectedCategory} sabor ${currentProduct.name} - ${currentLine.tag}`} className="relative z-10 w-auto h-full max-h-[500px] drop-shadow-2xl animate-float object-contain" />
           </div>
           <div className="flex flex-col text-left">
             <h3 className="text-4xl md:text-6xl font-black italic font-display uppercase leading-none mb-3" style={{ color: currentProduct.color }}>{currentLine.tag}</h3>

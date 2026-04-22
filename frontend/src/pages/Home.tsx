@@ -1,7 +1,9 @@
 import Hero from '../components/home/Hero';
+import TrustBar from '../components/home/TrustBar';
 import Features from '../components/home/Features';
 import UsageGuide from '../components/home/UsageGuide';
 import ProductShowcase from '../components/home/ProductShowcase';
+import NutritionalTable from '../components/home/NutritionalTable';
 import Comparison from '../components/home/Comparison';
 import Community from '../components/home/Community';
 import FAQ from '../components/home/FAQ';
@@ -20,7 +22,10 @@ const Home = () => {
     <main className="overflow-hidden">
       {/* Sección de Impacto Inicial */}
       <Hero />
-      
+
+      {/* Barra de Confianza */}
+      <TrustBar />
+
       {/* Pilares de marca */}
       <Features />
       
@@ -33,7 +38,12 @@ const Home = () => {
 
       {/* Catálogo de Productos */}
       <ProductShowcase />
-      
+
+      <NeonSeparator />
+
+      {/* Tabla Nutricional */}
+      <NutritionalTable />
+
       <NeonSeparator />
 
       {/* Comparativa Técnica */}
