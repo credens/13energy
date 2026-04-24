@@ -1,4 +1,5 @@
 import Hero from '../components/home/Hero';
+
 import TrustBar from '../components/home/TrustBar';
 import Features from '../components/home/Features';
 import UsageGuide from '../components/home/UsageGuide';
@@ -7,6 +8,7 @@ import NutritionalTable from '../components/home/NutritionalTable';
 import Comparison from '../components/home/Comparison';
 import Community from '../components/home/Community';
 import FAQ from '../components/home/FAQ';
+import Merch from '../components/home/Merch';
 import Newsletter from '../components/home/Newsletter';
 import Distributors from '../components/home/Distributors';
 
@@ -58,6 +60,11 @@ const Home = () => {
 
       {/* FAQs */}
       <FAQ />
+      
+      <NeonSeparator />
+
+      {/* Merchandising */}
+      <Merch />
       
       {/* Newsletter */}
       <Newsletter />

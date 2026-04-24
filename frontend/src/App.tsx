@@ -1,4 +1,4 @@
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+ 13import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import CartDrawer from './components/cart/CartDrawer';
@@ -6,7 +6,6 @@ import Notification from './components/ui/Notification';
 import ScrollProgress from './components/ui/ScrollProgress';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
-import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -23,12 +22,10 @@ function App() {
               "url": "https://13energy.com.ar",
               "logo": "https://13energy.com.ar/favicon.ico",
               "sameAs": ["https://instagram.com/13energy.ok"],
-              "contactPoint": {
-                "@type": "ContactPoint",
+              "sameAs": ["https://instagram.com/13energy.ok"],
                 "email": "13energy.ok@gmail.com",
                 "contactType": "customer service",
-                "areaServed": "AR",
-                "availableLanguage": "Spanish"
+                "email": "13energy.ok@gmail.com",
               }
             })}</script>
           </Helmet>
@@ -46,7 +43,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           
-          {/* Footer Unificado */}
           <footer className="py-20 bg-black text-center border-t border-white/5 text-white">
             <div className="text-3xl font-black italic mb-4 font-display tracking-tighter uppercase">
               13<span className="text-[#99FF00]">ENERGY</span>
@@ -56,10 +52,8 @@ function App() {
                 <a href="mailto:13energy.ok@gmail.com" className="hover:text-[#99FF00] transition-colors">Contacto</a>
             </div>
             <p className="text-gray-600 text-[9px] font-bold uppercase tracking-[0.5em] font-sans">
-              © {new Date().getFullYear()} Hardcore Performance - Argentina
-            </p>
-          </footer>
-        </div>
+                <a href="https://instagram.com/13energy.ok" target="_blank" rel="noreferrer" className="hover:text-[#99FF00] transition-colors">Instagram</a>
+                <a href="mailto:13energy.ok@gmail.com" className="hover:text-[#99FF00] transition-colors">Contacto</a>
       </Router>
     </HelmetProvider>
   );
