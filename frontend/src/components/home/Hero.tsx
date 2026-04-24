@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
+
 import { useCart } from '../../store/useCart';
 
 const allProducts = [
   { name: 'LIMA', type: 'PRE-WORK', color: '#99FF00', tagline: 'READY TO <br /> DRINK.', img: '/lata-13energy-lima.png', cat: 'PRE-WORK', idx: 0, isAvailable: true },
   { name: 'FRUTILLA', type: 'PRE-WORK', color: '#FF1E1E', tagline: 'FUERZA <br /> EXTREMA.', img: '/lata-13energy-frutilla.png', cat: 'PRE-WORK', idx: 1, isAvailable: true },
-  { name: 'LIMONADA', type: 'RECOVERY', color: '#D4FF00', tagline: 'RECUPERACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-limon.png', cat: 'RECOVERY', idx: 0, isAvailable: false },
-  { name: 'RECO-FRUTILLA', type: 'RECOVERY', color: '#FF4D6D', tagline: 'REHIDRATÁ TU <br /> POTENCIA.', img: '/lata-13energy-recovery-frutilla.png', cat: 'RECOVERY', idx: 1, isAvailable: false },
-  { name: 'COCO', type: 'RECOVERY + COLÁGENO', color: '#A5F3FC', tagline: 'REPARACIÓN <br /> TOTAL.', img: '/lata-13energy-recovery-colageno-coco.png', cat: 'COLÁGENO', idx: 0, isAvailable: false },
-  { name: 'NARANJA', type: 'RECOVERY + COLÁGENO', color: '#FB923C', tagline: 'ARTICULACIONES <br /> FUERTES.', img: '/lata-13energy-recovery-colageno-naranja.png', cat: 'COLÁGENO', idx: 1, isAvailable: false }
 ];
 
 const Hero = () => {
@@ -26,12 +23,8 @@ const Hero = () => {
 
   const handleAction = () => {
     const current = allProducts[currentSlide];
-    if (current.isAvailable) {
-      setSelection(current.cat, current.idx);
-      document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' });
-    }
+    setSelection(current.cat, current.idx);
+    document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -46,10 +39,10 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <button 
               onClick={handleAction} 
-              style={{ backgroundColor: allProducts[currentSlide].isAvailable ? allProducts[currentSlide].color : '#333' }} 
-              className={`px-10 py-5 font-black text-xl rounded-full hover:scale-105 transition-all uppercase italic text-center shadow-xl ${allProducts[currentSlide].isAvailable ? 'text-black' : 'text-white'}`}
+              style={{ backgroundColor: allProducts[currentSlide].color }} 
+              className="px-10 py-5 font-black text-xl rounded-full hover:scale-105 transition-all uppercase italic text-center shadow-xl text-black"
             >
-              {allProducts[currentSlide].isAvailable ? 'Ver Catálogo' : 'Anotate para el drop'}
+              Ver Catálogo
             </button>
             <a href="#distribuidores" className="px-10 py-5 border-2 border-white/10 text-white font-black text-xl rounded-full hover:bg-white hover:text-black transition-all uppercase italic text-center">Distribuidores</a>
           </div>
@@ -64,19 +57,8 @@ const Hero = () => {
                 <img 
                   src={product.img} 
                   alt={`Lata de 13Energy ${product.type} sabor ${product.name} - Bebida energética 473ml`} 
-                  className={`w-auto h-full max-h-[450px] md:max-h-[650px] lg:max-h-[750px] drop-shadow-[0_35px_45px_rgba(0,0,0,0.8)] animate-float object-contain ${!product.isAvailable ? 'grayscale opacity-30' : ''}`} 
+                  className="w-auto h-full max-h-[450px] md:max-h-[650px] lg:max-h-[750px] drop-shadow-[0_35px_45px_rgba(0,0,0,0.8)] animate-float object-contain" 
                 />
-                {!product.isAvailable && isActive && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4 pointer-events-none">
-                    <div className="absolute inset-0 bg-black/40 backdrop-grayscale rounded-[50px] m-10"></div>
-                    <span className="relative z-30 text-white font-display text-6xl md:text-[100px] font-black italic uppercase leading-none tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,1)]">
-                      PROXIMAMENTE
-                    </span>
-                    <span className="relative z-30 text-white font-sans text-sm md:text-xl font-black uppercase tracking-[0.2em] mt-2 drop-shadow-lg">
-                      ANOTATE PARA EL DROP
-                    </span>
-                  </div>
-                )}
               </div>
             );
           })}
