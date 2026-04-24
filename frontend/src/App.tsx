@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import CartDrawer from './components/cart/CartDrawer';
 import Notification from './components/ui/Notification';
 import ScrollProgress from './components/ui/ScrollProgress';
+import ScrollToHash from './components/ui/ScrollToHash';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import Gear from './pages/Gear';
@@ -35,6 +36,7 @@ function App() {
           </Helmet>
 
           {/* Componentes Globales */}
+          <ScrollToHash />
           <ScrollProgress />
           <Navbar />
           <CartDrawer />

@@ -2,12 +2,12 @@ import { useCart } from '../store/useCart';
 import { Link } from 'react-router-dom';
 
 const gearItems = [
-  { id: 'merch-stringer', name: 'STRINGER', price: 22000, description: 'MÁXIMA LIBERTAD PARA ENTRENAR', img: '/merch/stringer.png' },
-  { id: 'merch-muscle-tee', name: 'MUSCLE TEE', price: 25000, description: 'CORTE AMPLIO RENDIMIENTO TOTAL', img: '/merch/muscle-tee.png' },
-  { id: 'merch-top-energy', name: 'TOP ENERGY', price: 28000, description: 'SOPORTE Y CONFORT SIN LÍMITES', img: '/merch/top-energy.png' },
-  { id: 'merch-top-back', name: 'TOP BACK', price: 28000, description: 'DISEÑO EN ESPALDA MÁXIMA SUJECIÓN', img: '/merch/top-back.png' },
-  { id: 'merch-crop-tee', name: 'CROP TEE', price: 26000, description: 'ESTILO OVERSIZE PARA TU DÍA A DÍA', img: '/merch/crop-tee.png' },
-  { id: 'merch-hoodie-oversize', name: 'HOODIE OVERSIZE', price: 55000, description: 'COMODIDAD Y ACTITUD SIEMPRE ENFOCADO', img: '/merch/hoodie-oversize.png' }
+  { id: 'merch-stringer', name: 'STRINGER', price: 22000, description: 'MÁXIMA LIBERTAD PARA ENTRENAR', img: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'merch-muscle-tee', name: 'MUSCLE TEE', price: 25000, description: 'CORTE AMPLIO RENDIMIENTO TOTAL', img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'merch-top-energy', name: 'TOP ENERGY', price: 28000, description: 'SOPORTE Y CONFORT SIN LÍMITES', img: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'merch-top-back', name: 'TOP BACK', price: 28000, description: 'DISEÑO EN ESPALDA MÁXIMA SUJECIÓN', img: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'merch-crop-tee', name: 'CROP TEE', price: 26000, description: 'ESTILO OVERSIZE PARA TU DÍA A DÍA', img: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop' },
+  { id: 'merch-hoodie-oversize', name: 'HOODIE OVERSIZE', price: 55000, description: 'COMODIDAD Y ACTITUD SIEMPRE ENFOCADO', img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=1000&auto=format&fit=crop' }
 ];
 
 const Gear = () => {

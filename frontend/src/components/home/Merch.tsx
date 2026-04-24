@@ -6,21 +6,21 @@ const merchItems = [
     id: 'merch-stringer',
     name: 'STRINGER',
     price: 22000,
-    img: '/merch/stringer.png', 
+    img: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop', 
     description: 'MÁXIMA LIBERTAD PARA ENTRENAR'
   },
   {
     id: 'merch-muscle-tee',
     name: 'MUSCLE TEE',
     price: 25000,
-    img: '/merch/muscle-tee.png',
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000&auto=format&fit=crop',
     description: 'CORTE AMPLIO RENDIMIENTO TOTAL'
   },
   {
     id: 'merch-top-energy',
     name: 'TOP ENERGY',
     price: 28000,
-    img: '/merch/top-energy.png',
+    img: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1000&auto=format&fit=crop',
     description: 'SOPORTE Y CONFORT SIN LÍMITES'
   }
 ];
