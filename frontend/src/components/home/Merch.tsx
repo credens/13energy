@@ -6,21 +6,21 @@ const merchItems = [
     id: 'merch-stringer',
     name: 'STRINGER',
     price: 22000,
-    img: '', 
+    img: '/merch/stringer.png', 
     description: 'MÁXIMA LIBERTAD PARA ENTRENAR'
   },
   {
     id: 'merch-muscle-tee',
     name: 'MUSCLE TEE',
     price: 25000,
-    img: '',
+    img: '/merch/muscle-tee.png',
     description: 'CORTE AMPLIO RENDIMIENTO TOTAL'
   },
   {
     id: 'merch-top-energy',
     name: 'TOP ENERGY',
     price: 28000,
-    img: '',
+    img: '/merch/top-energy.png',
     description: 'SOPORTE Y CONFORT SIN LÍMITES'
   }
 ];
@@ -73,8 +73,8 @@ const Merch = () => {
           </div>
           {merchItems.map((item) => (
             <div key={item.id} className="group relative bg-[#0D0D0D] rounded-[40px] border border-white/5 p-6 transition-all overflow-hidden opacity-40 grayscale flex flex-col">
-              <div className="relative h-48 mb-6 flex items-center justify-center bg-black/20 rounded-3xl border border-white/5">
-                <span className="text-white/5 font-black italic font-display text-4xl select-none">13ENERGY</span>
+              <div className="relative h-48 mb-6 flex items-center justify-center bg-black/20 rounded-3xl border border-white/5 overflow-hidden">
+                <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
               </div>
 
               <div className="relative z-10 flex-1 flex flex-col justify-between">

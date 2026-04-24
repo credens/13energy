@@ -2,12 +2,12 @@ import { useCart } from '../store/useCart';
 import { Link } from 'react-router-dom';
 
 const gearItems = [
-  { id: 'merch-stringer', name: 'STRINGER', price: 22000, description: 'MÁXIMA LIBERTAD PARA ENTRENAR' },
-  { id: 'merch-muscle-tee', name: 'MUSCLE TEE', price: 25000, description: 'CORTE AMPLIO RENDIMIENTO TOTAL' },
-  { id: 'merch-top-energy', name: 'TOP ENERGY', price: 28000, description: 'SOPORTE Y CONFORT SIN LÍMITES' },
-  { id: 'merch-top-back', name: 'TOP BACK', price: 28000, description: 'DISEÑO EN ESPALDA MÁXIMA SUJECIÓN' },
-  { id: 'merch-crop-tee', name: 'CROP TEE', price: 26000, description: 'ESTILO OVERSIZE PARA TU DÍA A DÍA' },
-  { id: 'merch-hoodie-oversize', name: 'HOODIE OVERSIZE', price: 55000, description: 'COMODIDAD Y ACTITUD SIEMPRE ENFOCADO' }
+  { id: 'merch-stringer', name: 'STRINGER', price: 22000, description: 'MÁXIMA LIBERTAD PARA ENTRENAR', img: '/merch/stringer.png' },
+  { id: 'merch-muscle-tee', name: 'MUSCLE TEE', price: 25000, description: 'CORTE AMPLIO RENDIMIENTO TOTAL', img: '/merch/muscle-tee.png' },
+  { id: 'merch-top-energy', name: 'TOP ENERGY', price: 28000, description: 'SOPORTE Y CONFORT SIN LÍMITES', img: '/merch/top-energy.png' },
+  { id: 'merch-top-back', name: 'TOP BACK', price: 28000, description: 'DISEÑO EN ESPALDA MÁXIMA SUJECIÓN', img: '/merch/top-back.png' },
+  { id: 'merch-crop-tee', name: 'CROP TEE', price: 26000, description: 'ESTILO OVERSIZE PARA TU DÍA A DÍA', img: '/merch/crop-tee.png' },
+  { id: 'merch-hoodie-oversize', name: 'HOODIE OVERSIZE', price: 55000, description: 'COMODIDAD Y ACTITUD SIEMPRE ENFOCADO', img: '/merch/hoodie-oversize.png' }
 ];
 
 const Gear = () => {
@@ -34,7 +34,7 @@ const Gear = () => {
           {gearItems.map((item) => (
             <div key={item.id} className="group relative bg-[#0D0D0D] rounded-[40px] border border-white/5 p-10 transition-all hover:border-[#99FF00]/30 flex flex-col h-full overflow-hidden">
               <div className="relative aspect-square mb-8 flex items-center justify-center bg-black/40 rounded-3xl overflow-hidden border border-white/5">
-                 <span className="text-white/10 font-black italic font-display text-6xl rotate-12 select-none group-hover:scale-110 transition-transform duration-700">13ENERGY</span>
+                 <img src={item.img} alt={item.name} className="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
                  <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
                     <span className="text-[#99FF00] font-display text-3xl font-black italic uppercase">Proximamente</span>
