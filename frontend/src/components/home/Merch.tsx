@@ -1,5 +1,5 @@
-import { useCart } from '../../store/useCart';
 import { Link, useNavigate } from 'react-router-dom';
+
 
 const merchItems = [
   {
@@ -27,16 +27,6 @@ const merchItems = [
 
 const Merch = () => {
   const navigate = useNavigate();
-  const { addItem, toggleCart } = useCart();
-
-  const handleAdd = (item: typeof merchItems[0]) => {
-    addItem({
-      name: item.name,
-      img: item.img,
-      price: item.price
-    });
-    toggleCart();
-  };
 
   return (
     <section id="merch" className="py-24 bg-[#050505] font-sans overflow-hidden">
