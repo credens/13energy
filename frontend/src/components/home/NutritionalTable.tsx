@@ -1,12 +1,12 @@
 const NutritionalTable = () => {
   // Valores calculados por envase completo de 473ml
   const specs = [
-    { label: 'Beta Alanina', value: '6550mg', desc: 'Resistencia Máxima' },
-    { label: 'Creatina Monohidrato', value: '5440mg', desc: 'Potencia Explosiva' },
-    { label: 'L-Arginina', value: '2175mg', desc: 'Vasodilatación / Pump' },
-    { label: 'Citrulina', value: '2175mg', desc: 'Flujo Sanguíneo' },
-    { label: 'L-Taurina', value: '540mg', desc: 'Foco Mental' },
-    { label: 'Azúcares', value: '0g', desc: 'Energía Limpia' },
+    { label: 'Taurina', value: '2g', desc: 'Foco Mental' },
+    { label: 'Beta Alanina', value: '1200mg', desc: 'Resistencia Máxima' },
+    { label: 'Creatina Monohidrato', value: '1000mg', desc: 'Potencia Explosiva' },
+    { label: 'L-Arginina', value: '1000mg', desc: 'Vasodilatación / Pump' },
+    { label: 'Citrulina', value: '1000mg', desc: 'Flujo Sanguíneo' },
+    { label: 'Vitamina C', value: '19.5mg', desc: 'Soporte Inmune' },
   ];
 
   return (
