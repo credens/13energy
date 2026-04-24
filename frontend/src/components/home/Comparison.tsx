@@ -3,10 +3,14 @@ import { Zap, ShieldAlert, BarChart3 } from 'lucide-react';
 const Comparison = () => {
   const data = [
     { label: 'CAFEÍNA ANHÍDRA', powerValue: '400mg', others: '80mg', win: true },
-    { label: 'CREATINA MONOHIDRATO', powerValue: '5440mg', others: '0mg', win: true },
-    { label: 'BETA-ALANINA', powerValue: '6550mg', others: '0mg', win: true },
-    { label: 'L-ARGININA / CITRULINA', powerValue: '4350mg', others: '0mg', win: true },
-    { label: 'AZÚCARES AÑADIDOS', powerValue: '0g', others: '27g+', win: false },
+    { label: 'BETA-ALANINA', powerValue: '1200mg', others: '0mg', win: true },
+    { label: 'CREATINA MONOHIDRATO', powerValue: '1000mg', others: '0mg', win: true },
+    { label: 'TAURINA', powerValue: '2g', others: '0g', win: true },
+    { label: 'TIROSINA', powerValue: '1g', others: '0g', win: true },
+    { label: 'CITRULINA', powerValue: '1000mg', others: '0mg', win: true },
+    { label: 'ARGININA', powerValue: '1000mg', others: '0mg', win: true },
+    { label: 'TIROXINA', powerValue: '1000mg', others: '0mg', win: true },
+    { label: 'VITAMINA C', powerValue: '19.5mg', others: '0mg', win: true },
   ];
 
   return (

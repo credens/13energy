@@ -6,8 +6,8 @@ import UsageGuide from '../components/home/UsageGuide';
 import ProductShowcase from '../components/home/ProductShowcase';
 import NutritionalTable from '../components/home/NutritionalTable';
 import Comparison from '../components/home/Comparison';
-import Community from '../components/home/Community';
 import FAQ from '../components/home/FAQ';
+import TeamGallery from '../components/home/TeamGallery';
 import Merch from '../components/home/Merch';
 import Newsletter from '../components/home/Newsletter';
 import Distributors from '../components/home/Distributors';
@@ -53,13 +53,12 @@ const Home = () => {
       
       <NeonSeparator />
 
-      {/* Team 13 */}
-      <Community />
+      <FAQ />
       
       <NeonSeparator />
 
-      {/* FAQs */}
-      <FAQ />
+      {/* Galería de la Comunidad */}
+      <TeamGallery />
       
       <NeonSeparator />
 

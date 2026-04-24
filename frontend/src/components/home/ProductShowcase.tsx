@@ -13,7 +13,7 @@ const ProductShowcase = () => {
         { name: 'LIMA', color: '#99FF00', img: '/lata-13energy-lima.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
         { name: 'FRUTILLA', color: '#FF1E1E', img: '/lata-13energy-frutilla.png', desc: 'Balance perfecto entre frutilla y naranja.' }
       ],
-      nutrition: [{ label: 'BETA ALANINA', value: '+6000mg' }, { label: 'CREATINA', value: '+5000mg' }, { label: 'CAFEÍNA', value: '400mg' }, { label: 'CITRULINA', value: '+2000mg' }, { label: 'L-ARGININA', value: '+2000mg' }, { label: 'CALORÍAS', value: '9KCAL' }]
+      nutrition: [{ label: 'BETA ALANINA', value: '1200mg' }, { label: 'CREATINA', value: '1000mg' }, { label: 'CAFEÍNA', value: '400mg' }, { label: 'CITRULINA', value: '1000mg' }, { label: 'L-ARGININA', value: '1000mg' }, { label: 'VITAMINA C', value: '19.5mg' }]
     },
     'RECOVERY': {
       tag: 'REPARACIÓN & HIDRATACIÓN',
@@ -22,7 +22,7 @@ const ProductShowcase = () => {
         { name: 'LIMONADA', color: '#D4FF00', img: '/lata-13energy-recovery-limon.png', desc: 'Hidratación profunda. Recuperación sin estimulantes.' },
         { name: 'FRUTILLA', color: '#FF4D6D', img: '/lata-13energy-recovery-frutilla.png', desc: 'Recuperación muscular avanzada con sabor a frutilla.' }
       ],
-      nutrition: [{ label: 'BCAAs 2:1:1', value: '5000mg' }, { label: 'GLUTAMINA', value: '3000mg' }, { label: 'ELECTROLITOS', value: '1000mg' }, { label: 'VITAMINA C', value: '500mg' }, { label: 'MAGNESIO', value: '200mg' }, { label: 'AZÚCARES', value: '0g' }]
+      nutrition: [{ label: 'BCAAs 2:1:1', value: '6000mg' }, { label: 'GLUTAMINA', value: '3000mg' }, { label: 'ELECTROLITOS', value: '1000mg' }, { label: 'VITAMINA C', value: '500mg' }, { label: 'MAGNESIO', value: '200mg' }, { label: 'AZÚCARES', value: '0g' }]
     },
     'COLÁGENO': {
       tag: 'REPARACIÓN & ARTICULACIONES',
@@ -31,7 +31,7 @@ const ProductShowcase = () => {
         { name: 'COCO', color: '#A5F3FC', img: '/lata-13energy-recovery-colageno-coco.png', desc: 'Recuperación estructural. Ideal para salud articular.' },
         { name: 'NARANJA', color: '#FB923C', img: '/lata-13energy-recovery-colageno-naranja.png', desc: 'Sabor naranja vibrante con el poder del colágeno.' }
       ],
-      nutrition: [{ label: 'COLÁGENO', value: '5000mg' }, { label: 'BCAAs', value: '3000mg' }, { label: 'MAGNESIO', value: '200mg' }, { label: 'VITAMINA D3', value: '10µg' }, { label: 'ZINC', value: '15mg' }, { label: 'CALORÍAS', value: '18KCAL' }]
+      nutrition: [{ label: 'COLÁGENO', value: '7000mg' }, { label: 'BCAAs', value: '3000mg' }, { label: 'MAGNESIO', value: '200mg' }, { label: 'VITAMINA D3', value: '10µg' }, { label: 'ZINC', value: '15mg' }, { label: 'CALORÍAS', value: '18KCAL' }]
     }
   };
 
