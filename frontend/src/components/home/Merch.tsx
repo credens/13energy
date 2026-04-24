@@ -1,5 +1,5 @@
 import { useCart } from '../../store/useCart';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const merchItems = [
   {
@@ -26,6 +26,7 @@ const merchItems = [
 ];
 
 const Merch = () => {
+  const navigate = useNavigate();
   const { addItem, toggleCart } = useCart();
 
   const handleAdd = (item: typeof merchItems[0]) => {
@@ -65,7 +66,7 @@ const Merch = () => {
                 GEAR EN PRODUCCIÓN
               </span>
               <button 
-                onClick={() => document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => navigate('/#newsletter')}
                 className="mt-6 px-8 py-3 bg-[#99FF00] text-black font-black italic uppercase rounded-full text-sm hover:scale-105 transition-all pointer-events-auto"
               >
                 Avisame

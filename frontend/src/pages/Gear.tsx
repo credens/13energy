@@ -1,5 +1,5 @@
 import { useCart } from '../store/useCart';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const gearItems = [
   { id: 'merch-stringer', name: 'STRINGER', price: 22000, description: 'MÁXIMA LIBERTAD PARA ENTRENAR', img: '/merch/stringer.png' },
@@ -11,12 +11,12 @@ const gearItems = [
 ];
 
 const Gear = () => {
+  const navigate = useNavigate();
   const { showNotification } = useCart();
 
   const handleBuy = () => {
     showNotification("GEAR EN PRODUCCIÓN - TE AVISAREMOS", "error");
-    // Scroll a newsletter en el home si se redirige, o simplemente mostrar aviso
-    window.location.href = "/#newsletter";
+    navigate('/#newsletter');
   };
 
   return (
