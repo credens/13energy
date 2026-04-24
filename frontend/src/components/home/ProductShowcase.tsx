@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+
 import { useCart } from '../../store/useCart';
 import { PACK_PRICE, PRICING } from '../../config/constants';
 
@@ -7,7 +8,7 @@ const ProductShowcase = () => {
 
   const lines = {
     'PRE-WORK': {
-      tag: 'POWER & ENERGY',
+      tag: 'EL PRIMER PRE WORK LISTO PARA TOMAR DE ARGENTINA. NO AGITES MÁS',
       comingSoon: false,
       products: [
         { name: 'LIMA', color: '#99FF00', img: '/lata-13energy-lima.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
