@@ -19,8 +19,8 @@ const Community = () => {
             </h2>
           </div>
           <div className="text-right">
-             <a href="https://instagram.com/13energy.ok" target="_blank" rel="noreferrer" className="text-white font-black italic text-2xl font-display hover:text-13neon transition-colors uppercase tracking-tight">
-                @13energy.ok
+             <a href="https://instagram.com/13energy.arg" target="_blank" rel="noreferrer" className="text-white font-black italic text-2xl font-display hover:text-13neon transition-colors uppercase tracking-tight">
+                @13energy.arg
              </a>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Community = () => {
           </div>
 
           <a 
-            href="mailto:13energy.ok@gmail.com?subject=Postulacion Team 13" 
+            href="mailto:13energy.arg@gmail.com?subject=Postulacion Team 13" 
             className="px-12 py-6 bg-black text-[#99FF00] font-black italic text-xl rounded-full hover:scale-105 transition-all uppercase shadow-2xl font-display tracking-widest"
           >
             Postularme Ahora

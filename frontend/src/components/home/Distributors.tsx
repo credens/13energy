@@ -40,8 +40,8 @@ const Distributors = () => {
           </h2>
           <div className="flex flex-col gap-4 items-center md:items-start mt-10">
              <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Escribinos directamente:</p>
-             <a href="mailto:13energy.ok@gmail.com" className="text-white hover:text-[#99FF00] transition-colors font-display text-2xl italic tracking-widest uppercase">
-                13ENERGY.OK@GMAIL.COM
+             <a href="mailto:13energy.arg@gmail.com" className="text-white hover:text-[#99FF00] transition-colors font-display text-2xl italic tracking-widest uppercase">
+                13ENERGY.ARG@GMAIL.COM
              </a>
           </div>
         </div>
