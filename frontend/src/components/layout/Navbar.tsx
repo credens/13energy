@@ -18,13 +18,13 @@ const Navbar = () => {
           to="/" 
           className="text-3xl font-black italic tracking-tighter text-white uppercase font-display hover:opacity-80 transition-opacity"
         >
-          13<span className="text-[#99FF00]">ENERGY</span>
+          <span className="text-[#99FF00]">ENERGY</span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <a href="/#productos" className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#99FF00] transition-colors">Productos</a>
-          <a href="/#team13" className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#99FF00] transition-colors">Team 13</a>
+          <a href="/#comunidad" className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#99FF00] transition-colors">Comunidad</a>
           <Link to="/gear" className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#99FF00] transition-colors">Gear</Link>
           <a href="/#distribuidores" className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-[#99FF00] transition-colors">Distribuidores</a>
           
@@ -61,7 +61,7 @@ const Navbar = () => {
         <div className="md:hidden bg-black border-b border-white/10 px-6 py-8 flex flex-col gap-6 text-white uppercase font-black italic tracking-widest font-display text-2xl">
           <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
           <a href="/#productos" onClick={() => setIsOpen(false)}>Productos</a>
-          <a href="/#team13" onClick={() => setIsOpen(false)}>Team 13</a>
+          <a href="/#comunidad" onClick={() => setIsOpen(false)}>Comunidad</a>
           <Link to="/gear" onClick={() => setIsOpen(false)}>Gear</Link>
           <a href="/#distribuidores" onClick={() => setIsOpen(false)}>Distribuidores</a>
           <button onClick={() => {toggleCart(); setIsOpen(false);}} className="text-[#99FF00] text-left flex items-center gap-2 uppercase">
