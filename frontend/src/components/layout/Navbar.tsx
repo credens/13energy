@@ -18,7 +18,7 @@ const Navbar = () => {
           to="/" 
           className="text-3xl font-black italic tracking-tighter text-white uppercase font-display hover:opacity-80 transition-opacity"
         >
-          <span className="text-[#99FF00]">ENERGY</span>
+          13<span className="text-[#99FF00]">ENERGY</span>
         </Link>
 
         {/* Desktop Menu */}
