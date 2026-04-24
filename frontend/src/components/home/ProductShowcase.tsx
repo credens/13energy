@@ -9,11 +9,11 @@ const ProductShowcase = () => {
 
   const lines = {
     'PRE-WORK': {
-      tag: 'EL PRIMER PRE WORK LISTO PARA TOMAR DE ARGENTINA. NO AGITES MÁS',
+      tag: 'POWER & ENERGY',
       comingSoon: false,
       products: [
-        { name: 'LIMA', color: '#99FF00', img: '/lata-13energy-lima.png', desc: 'Fórmula original para entrenamientos de alta intensidad.' },
-        { name: 'FRUTILLA', color: '#FF1E1E', img: '/lata-13energy-frutilla.png', desc: 'Balance perfecto entre frutilla y naranja.' }
+        { name: 'LIMA', color: '#99FF00', img: '/lata-13energy-lima.png', desc: 'EL PRIMER PRE WORK LISTO PARA TOMAR DE ARGENTINA. NO AGITES MÁS' },
+        { name: 'FRUTILLA', color: '#FF1E1E', img: '/lata-13energy-frutilla.png', desc: 'EL PRIMER PRE WORK LISTO PARA TOMAR DE ARGENTINA. NO AGITES MÁS' }
       ],
       nutrition: [{ label: 'BETA ALANINA', value: '1200mg' }, { label: 'CREATINA', value: '1000mg' }, { label: 'CAFEÍNA', value: '400mg' }, { label: 'CITRULINA', value: '1000mg' }, { label: 'L-ARGININA', value: '1000mg' }, { label: 'VITAMINA C', value: '19.5mg' }]
     },
